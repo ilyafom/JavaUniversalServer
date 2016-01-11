@@ -142,19 +142,6 @@ public class DataBaseAccess {
 			
 		Statement st = connection.createStatement();
 		
-		String guid = getGUIDUserByLogin(usacc);
-		rs2 = st.executeQuery("SELECT * FROM secondtable WHERE guid = '"+ guid  +"' AND dataname = 'accountAccess'");
-		if (rs2.next())
-		{
-			
-			if (!rs2.getString("datavalue").equals("open"))
-			{
-				return false;
-			}
-		}
-		
-		
-		
 		rs = st.executeQuery("SELECT guid,dataname,datavalue FROM secondtable;");
 		
 		String guid1 = "1";
@@ -841,7 +828,7 @@ public class DataBaseAccess {
 					return false;
 				}else {
 					return true;
-					}
+			    }
 				
 				
 			}
